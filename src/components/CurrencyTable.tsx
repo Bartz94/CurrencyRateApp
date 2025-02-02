@@ -1,4 +1,5 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Table, TableBody, TableHead, TableRow, Paper } from '@mui/material';
+import { StyledTableContainer, StyledTableCell, StyledTableRow, StyledBodyTableCell } from '../styles/TableStyles';
 
 interface CurrencyTableProps {
     data: Record<string, number>;
@@ -7,35 +8,24 @@ interface CurrencyTableProps {
 
 const CurrencyTable = ({ data, onCurrencySelect }: CurrencyTableProps) => {
     return (
-        <TableContainer
-            component={Paper}
-            sx={{ maxHeight: '75vh', overflowY: 'auto' }}  >
+        <StyledTableContainer component={Paper}>
             <Table stickyHeader>
                 <TableHead>
                     <TableRow>
-                        <TableCell sx={{ textAlign: 'center', fontWeight: 900 }}>Currency</TableCell>
-                        <TableCell sx={{ textAlign: 'center', fontWeight: 900 }}>Rate</TableCell>
+                        <StyledTableCell>Currency</StyledTableCell>
+                        <StyledTableCell>Rate</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {Object.entries(data).map(([currency, rate]) => (
-                        <TableRow
-                            sx={{
-                                '&:hover': {
-                                    backgroundColor: 'lightgrey',
-                                    cursor: 'pointer',
-                                },
-                            }}
-                            key={currency}
-                            onClick={() => onCurrencySelect(currency)}
-                            style={{ cursor: 'pointer' }}>
-                            <TableCell sx={{ textAlign: 'center' }}>{currency}</TableCell>
-                            <TableCell sx={{ textAlign: 'center' }}>{rate.toFixed(3)}</TableCell>
-                        </TableRow>
+                        <StyledTableRow key={currency} onClick={() => onCurrencySelect(currency)}>
+                            <StyledBodyTableCell>{currency}</StyledBodyTableCell>
+                            <StyledBodyTableCell>{rate.toFixed(3)}</StyledBodyTableCell>
+                        </StyledTableRow>
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </StyledTableContainer>
     );
 };
 

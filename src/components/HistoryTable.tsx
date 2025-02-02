@@ -1,58 +1,60 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress, Typography, Container, ratingClasses } from '@mui/material';
-import { useGetCurrencyHistoryQuery } from '../services/currencyApi';
+import { Table, TableBody, TableHead, TableRow, Paper, CircularProgress, Typography } from "@mui/material";
+import { useGetCurrencyHistoryQuery } from "../services/currencyApi";
+import {
+    StyledTableCell,
+    StyledBodyTableCell,
+    StyledTableRow,
+    StyledTableContainer,
+    StyledContainer,
+} from "../styles/TableStyles";
 
 interface HistoryTableProps {
     currency: string;
 }
 
 const HistoryTable = ({ currency }: HistoryTableProps) => {
-    const { data, isLoading, error } = useGetCurrencyHistoryQuery('PLN');
+    const { data, isLoading, error } = useGetCurrencyHistoryQuery("PLN");
 
     if (isLoading) {
         return (
-            <Container
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+            <StyledContainer>
                 <CircularProgress />
-            </Container>
+            </StyledContainer>
         );
     }
+
     if (error) {
         return (
-            <Container
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Typography color="error">Wystąpił błąd</Typography>
-            </Container>
+            <StyledContainer>
+                <Typography color="error">An error occurred</Typography>
+            </StyledContainer>
         );
     }
 
     return (
-        <TableContainer
-            component={Paper}
-            sx={{ maxHeight: '75vh', overflowY: 'auto' }}>
+        <StyledTableContainer component={Paper as React.ElementType}>
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell sx={{ textAlign: 'center', fontWeight: 900 }}>Date</TableCell>
-                        <TableCell sx={{ textAlign: 'center', fontWeight: 900 }}>Rate</TableCell>
+                        <StyledTableCell>Date</StyledTableCell>
+                        <StyledTableCell>Rate</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data && Object.entries(data.rates).map(([date, rates]) => {
-                        const rate = rates[currency];
+                    {data &&
+                        Object.entries(data.rates).map(([date, rates]) => {
+                            const rate = rates[currency];
 
-                        console.log(ratingClasses)
-                        return (
-                            <TableRow key={date}>
-                                <TableCell sx={{ textAlign: 'center' }}>{date}</TableCell>
-                                <TableCell sx={{ textAlign: 'center' }}>
-                                    {rate ? rate.toFixed(3) : 'Brak danych'}
-                                </TableCell>
-                            </TableRow>
-                        );
-                    })}
+                            return (
+                                <StyledTableRow key={date}>
+                                    <StyledBodyTableCell>{date}</StyledBodyTableCell>
+                                    <StyledBodyTableCell>{rate ? rate.toFixed(3) : "Brak danych"}</StyledBodyTableCell>
+                                </StyledTableRow>
+                            );
+                        })}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </StyledTableContainer>
     );
 };
 

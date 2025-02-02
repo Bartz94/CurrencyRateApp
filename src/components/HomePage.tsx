@@ -1,45 +1,51 @@
-import { useState } from 'react';
-import { Container, Typography, CircularProgress, Box } from '@mui/material';
-import { useGetCurrenciesQuery } from '../services/currencyApi';
-import CurrencyTable from '../components/CurrencyTable';
-import HistoryTable from '../components/HistoryTable';
+import { useState } from "react";
+import { Typography, CircularProgress } from "@mui/material";
+import { useGetCurrenciesQuery } from "../services/currencyApi";
+import CurrencyTable from "../components/CurrencyTable";
+import HistoryTable from "../components/HistoryTable";
+import { StyledContainer, Title, ContentBox, StyledBox, CenteredTypography } from "../styles/HomePageStyles";
 
 const HomePage = () => {
-    const [selectedCurrency, setSelectedCurrency] = useState<string | null>('');
-    const { data, error, isLoading } = useGetCurrenciesQuery('PLN');
+    const [selectedCurrency, setSelectedCurrency] = useState<string | null>("");
+    const { data, error, isLoading } = useGetCurrenciesQuery("PLN");
 
     if (isLoading) return <CircularProgress />;
-    if (error) return <Typography color="error">Wystąpił błąd</Typography>;
+    if (error)
+        return <Typography color="error">An error occurred</Typography>;
 
     return (
-        <Container sx={{ gap: 5 }}>
-            <Typography sx={{ mb: 3 }} variant="h2" textAlign="center">Currency Rate App</Typography>
+        <StyledContainer>
+            <Title variant="h2">Currency Rate App</Title>
+            <ContentBox>
+                <StyledBox>
+                    <CenteredTypography variant="h5">
+                        Rates in relation to PLN
+                    </CenteredTypography>
+                    <CurrencyTable
+                        data={data?.rates ?? {}}
+                        onCurrencySelect={setSelectedCurrency}
+                    />
+                </StyledBox>
 
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    gap: 5,
-                    alignItems: { xs: 'center', md: 'flex-start' }
-                }}
-            >
-                <Box sx={{ minWidth: '300px', width: '100%' }}>
-                    <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>Rates in relation to PLN</Typography>
-                    <CurrencyTable data={data?.rates ?? {}} onCurrencySelect={setSelectedCurrency} />
-                </Box>
                 {selectedCurrency ? (
-                    <Box sx={{ minWidth: '300px', width: '100%' }}>
-                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>History rates of {selectedCurrency}</Typography>
+                    <StyledBox>
+                        <CenteredTypography variant="h5">
+                            History rates of {selectedCurrency}
+                        </CenteredTypography>
                         <HistoryTable currency={selectedCurrency} />
-                    </Box>
+                    </StyledBox>
                 ) : (
-                    <Box sx={{ minWidth: '300px', width: '100%' }}>
-                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>History rates {selectedCurrency ? `of ${selectedCurrency}` : ''}</Typography>
-                        <Typography sx={{ mb: 3 }} textAlign="center">Select currency to see history</Typography>
-                    </Box>
+                    <StyledBox>
+                        <CenteredTypography variant="h5">
+                            History rates
+                        </CenteredTypography>
+                        <CenteredTypography>
+                            Select currency to see history
+                        </CenteredTypography>
+                    </StyledBox>
                 )}
-            </Box>
-        </Container>
+            </ContentBox>
+        </StyledContainer>
     );
 };
 

@@ -6,7 +6,6 @@ import HistoryTable from './HistoryTable';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
-// Konfiguracja serwera MSW 2.0
 const server = setupServer(
     http.get('https://api.frankfurters.dev/v1/latest', async () => {
         return HttpResponse.json({
@@ -18,7 +17,6 @@ const server = setupServer(
     })
 );
 
-// Start i reset serwera MSW przed i po testach
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
@@ -55,7 +53,7 @@ describe('HistoryTable Component', () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByText(/Wystąpił błąd/i)).toBeInTheDocument();
+            expect(screen.getByText(/An error occurred/i)).toBeInTheDocument();
         });
     });
 
@@ -73,7 +71,7 @@ describe('HistoryTable Component', () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByText(/Wystąpił błąd/i)).toBeInTheDocument();
+            expect(screen.getByText(/An error occurred/i)).toBeInTheDocument();
         });
     });
 });

@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { setupServer } from 'msw/node';
 import { http, HttpResponse } from 'msw';
 
-import { setupStore } from '../store';
 import HomePage from './HomePage';
+import { store } from '../store';
 
 const server = setupServer(
   http.get('https://api.frankfurters.dev/v1/latest', async () => {
@@ -24,8 +24,6 @@ const server = setupServer(
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
-
-const store = setupStore();
 
 describe('HomePage Component', () => {
   it('renders loading state', async () => {
@@ -54,7 +52,7 @@ describe('HomePage Component', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Wystąpił błąd/i)).toBeInTheDocument();
+      expect(screen.getByText(/An error occurred/i)).toBeInTheDocument();
     });
   });
 
