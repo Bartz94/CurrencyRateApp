@@ -24,17 +24,17 @@ const HomePage = () => {
                 }}
             >
                 <Box sx={{ minWidth: '300px', width: '100%' }}>
-                    <Typography sx={{ mb: 3 }} variant="h5" textAlign={{ xs: 'center', md: 'center' }}>Rates in relation to PLN</Typography>
+                    <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>Rates in relation to PLN</Typography>
                     <CurrencyTable data={data?.rates ?? {}} onCurrencySelect={setSelectedCurrency} />
                 </Box>
                 {selectedCurrency ? (
                     <Box sx={{ minWidth: '300px', width: '100%' }}>
-                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={{ xs: 'center', md: 'center' }}>History rates of {selectedCurrency}</Typography>
+                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>History rates of {selectedCurrency}</Typography>
                         <HistoryTable currency={selectedCurrency} />
                     </Box>
                 ) : (
                     <Box sx={{ minWidth: '300px', width: '100%' }}>
-                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={{ xs: 'center', md: 'left' }}>History rates {selectedCurrency ? `of ${selectedCurrency}` : ''}</Typography>
+                        <Typography sx={{ mb: 3 }} variant="h5" textAlign={"center"}>History rates {selectedCurrency ? `of ${selectedCurrency}` : ''}</Typography>
                         <Typography sx={{ mb: 3 }} textAlign="center">Select currency to see history</Typography>
                     </Box>
                 )}
