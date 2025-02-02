@@ -21,3 +21,7 @@ The application consists of two main sections:
 - **Material-UI**: A popular React UI framework for building modern and responsive interfaces.
 - **Redux Toolkit Query**: For state management and API interactions.
 - **Vitest**: A testing framework for running unit and integration tests.
+
+## Live Demo
+
+You can view a live demo of the application here: [(https://currency-rate-app-pi.vercel.app/)](https://currency-rate-app-pi.vercel.app/)
