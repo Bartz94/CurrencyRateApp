@@ -22,6 +22,21 @@ The application consists of two main sections:
 - **Redux Toolkit Query**: For state management and API interactions.
 - **Vitest**: A testing framework for running unit and integration tests.
 
+## Tests
+
+The application has been tested using the following tools:
+
+- **Vitest** – a framework for unit and integration tests.
+- **MSW (Mock Service Worker)** – for mocking API queries in tests.
+- **@testing-library/jest-dom** – a set of matchers for testing DOM elements.
+- **@testing-library/react** – React component testing tool.
+
+To run the tests, use the following command:
+
+```sh
+npx vitest
+```
+
 ## Live Demo
 
 You can view a live demo of the application here: [(https://currency-rate-app-pi.vercel.app/)](https://currency-rate-app-pi.vercel.app/)
