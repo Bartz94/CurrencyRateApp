@@ -1,6 +1,6 @@
 # Currency Exchange Rates Application
 
-This application displays exchange rates for different currencies against the Polish Zloty (PLN). It is built using React.js, TypeScript, and Vite as the build tool. The app fetches currency data from the free API `https://frankfurter.dev/`.
+This application displays exchange rates for different currencies against the Polish Zloty (PLN). It is built using React.js, TypeScript, and Vite as the build tool. The app fetches currency data from the free API `https://frankfurter.dev/`. Unfortunately, it does not return rates from the weekend, it is updated every day on weekdays around 16:00 CET
 
 ## Features
 
