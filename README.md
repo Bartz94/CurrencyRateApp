@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# Currency Exchange Rates Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application displays exchange rates for different currencies against the Polish Zloty (PLN). It is built using React.js, TypeScript, and Vite as the build tool. The app fetches currency data from the free API `https://frankfurter.dev/`. Unfortunately, it does not return rates from the weekend, it is updated every day on weekdays around 16:00 CET
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application consists of two main sections:
 
-## Expanding the ESLint configuration
+1. **List of Exchange Rates Against PLN**:
+   - The first column shows exchange rates for various currencies against the Polish Zloty (PLN).
+   - The user can select any currency to view its detailed history.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. **Currency History**:
+   - After selecting a currency from the first column, the second column displays the exchange rates for that currency from today to the Monday of the previous week.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React.js**: JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that provides static types.
+- **Vite**: Next-generation build tool that provides fast development and build times.
+- **Material-UI**: A popular React UI framework for building modern and responsive interfaces.
+- **Redux Toolkit Query**: For state management and API interactions.
+- **Vitest**: A testing framework for running unit and integration tests.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Live Demo
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+You can view a live demo of the application here: [(https://currency-rate-app-pi.vercel.app/)](https://currency-rate-app-pi.vercel.app/)
