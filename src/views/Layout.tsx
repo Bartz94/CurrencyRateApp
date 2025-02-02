@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <>
             <CssBaseline />
-            <Container sx={{ mt: 2 }}>
+            <Container >
                 {children}
             </Container>
         </>
