@@ -18,7 +18,7 @@ const CurrencyTable = ({ data, onCurrencySelect }: CurrencyTableProps) => {
                 </TableHead>
                 <TableBody>
                     {Object.entries(data).map(([currency, rate]) => (
-                        <StyledTableRow key={currency} onClick={() => onCurrencySelect(currency)}>
+                        <StyledTableRow selectable key={currency} onClick={() => onCurrencySelect(currency)}>
                             <StyledBodyTableCell>{currency}</StyledBodyTableCell>
                             <StyledBodyTableCell>{rate.toFixed(3)}</StyledBodyTableCell>
                         </StyledTableRow>

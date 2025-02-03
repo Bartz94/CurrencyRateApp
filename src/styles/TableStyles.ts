@@ -18,13 +18,17 @@ export const StyledBodyTableCell = styled(TableCell)({
     textAlign: "center",
 });
 
-export const StyledTableRow = styled(TableRow)({
+interface StyledTableRowProps {
+    selectable?: boolean;
+}
+
+export const StyledTableRow = styled(TableRow)<StyledTableRowProps>(({ selectable }) => ({
     "&:hover": {
         backgroundColor: "lightgrey",
-        cursor: "pointer",
+        cursor: selectable ? "pointer" : "default",
     },
-    cursor: "pointer",
-});
+    cursor: selectable ? "pointer" : "default",
+}));
 
 export const StyledContainer = styled(Container)({
     display: "flex",
