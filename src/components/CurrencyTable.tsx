@@ -1,5 +1,5 @@
-import { Table, TableBody, TableHead, TableRow, Paper } from '@mui/material';
-import { StyledTableContainer, StyledTableCell, StyledTableRow, StyledBodyTableCell } from '../styles/TableStyles';
+import { Table, TableBody, TableRow, Paper } from '@mui/material';
+import { StyledTableContainer, StyledTableCell, StyledTableRow, StyledBodyTableCell, StyledTableHead } from '../styles/TableStyles';
 
 interface CurrencyTableProps {
     data: Record<string, number>;
@@ -10,12 +10,12 @@ const CurrencyTable = ({ data, onCurrencySelect }: CurrencyTableProps) => {
     return (
         <StyledTableContainer component={Paper}>
             <Table stickyHeader>
-                <TableHead>
+                <StyledTableHead>
                     <TableRow>
                         <StyledTableCell>Currency</StyledTableCell>
                         <StyledTableCell>Rate</StyledTableCell>
                     </TableRow>
-                </TableHead>
+                </StyledTableHead>
                 <TableBody>
                     {Object.entries(data).map(([currency, rate]) => (
                         <StyledTableRow selectable key={currency} onClick={() => onCurrencySelect(currency)}>

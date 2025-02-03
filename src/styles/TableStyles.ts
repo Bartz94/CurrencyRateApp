@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { TableContainer, TableCell, TableRow, Container } from "@mui/material";
+import { TableContainer, TableCell, TableRow, Container, TableHead } from "@mui/material";
 
 export const StyledTableContainer = styled(TableContainer)<{ component?: React.ElementType }>(({ theme }) => ({
     height: "70vh",
@@ -9,9 +9,15 @@ export const StyledTableContainer = styled(TableContainer)<{ component?: React.E
     },
 }));
 
+export const StyledTableHead = styled(TableHead)({
+    backgroundColor: 'blue',
+    color: 'white'
+});
+
 export const StyledTableCell = styled(TableCell)({
     textAlign: "center",
     fontWeight: 900,
+    backgroundColor: '#c0c2f7',
 });
 
 export const StyledBodyTableCell = styled(TableCell)({
