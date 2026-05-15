@@ -13,6 +13,23 @@ The application consists of two main sections:
 2. **Currency History**:
    - After selecting a currency from the first column, the second column displays the exchange rates for that currency from today to the Monday of the previous week.
 
+## Installation
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/currency-exchange-app.git
+```
+Go to the project directory:
+
+```bash
+cd currency-exchange-app
+```
+
+Run the development server:
+```bash
+npm run dev
+```
+
 ## Technologies Used
 
 - **React.js**: JavaScript library for building user interfaces.
