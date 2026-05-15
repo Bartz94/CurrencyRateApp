@@ -32,13 +32,19 @@ npm run dev
 
 ## Technologies Used
 
-- **React.js**: JavaScript library for building user interfaces.
+- **React.js**: JavaScript library for building user interfaces. 
 - **TypeScript**: A superset of JavaScript that provides static types.
 - **Vite**: Next-generation build tool that provides fast development and build times.
 - **Material-UI**: A popular React UI framework for building modern and responsive interfaces.
 - **Redux Toolkit Query**: For state management and API interactions.
 - **Vitest**: A testing framework for running unit and integration tests.
 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Material UI](https://img.shields.io/badge/Material_UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
 ## Tests
 
 The application has been tested using the following tools:
